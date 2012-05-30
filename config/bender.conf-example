@@ -1,4 +1,4 @@
-[Process2]
+[LaunchpadMonitorProcess]
 library = BenderBot_LaunchpadMonitor.Monitor
 class = Monitor
 
