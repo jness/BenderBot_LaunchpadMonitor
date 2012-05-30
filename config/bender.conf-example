@@ -5,6 +5,8 @@
 [LaunchpadMonitorProcess]
 library = BenderBot_LaunchpadMonitor.Monitor
 class = Monitor
+# If a important process dies the entire bot will die
+important = False
 
 [LaunchpadMonitor]
 # the Launchpad Project we will be monitoring
