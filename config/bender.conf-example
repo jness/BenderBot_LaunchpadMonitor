@@ -1,3 +1,7 @@
+# This configuration should be appened to
+# you ~/.bender.conf file along with BenderBot's
+# configuration.
+#
 [LaunchpadMonitorProcess]
 library = BenderBot_LaunchpadMonitor.Monitor
 class = Monitor
