@@ -1,5 +1,5 @@
 # This configuration should be appened to
-# you ~/.bender.conf file along with BenderBot's
+# your ~/.bender.conf file along with BenderBot's
 # configuration.
 #
 [LaunchpadMonitorProcess]
