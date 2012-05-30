@@ -1,0 +1,14 @@
+[Process2]
+library = BenderBot_LaunchpadMonitor.Monitor
+class = Monitor
+
+[LaunchpadMonitor]
+# the Launchpad Project we will be monitoring
+project = ius
+# check for new bugs / updates that are X minutes old
+# for the above project.
+age = 5
+# use production or staging
+system = staging
+# how often to run this custom process
+intreval = 300
