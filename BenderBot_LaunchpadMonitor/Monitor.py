@@ -4,6 +4,7 @@ from ConfigParser import NoOptionError, NoSectionError
 import lazr.restfulclient.errors as errors
 from BenderBot.BenderProcess import BenderProcess
 from time import sleep
+from re import match
 
 class Monitor(BenderProcess):
     
@@ -51,8 +52,7 @@ class Monitor(BenderProcess):
 
             self.logger.info('found %s bugs' % len(tasks))            
             for task in tasks:
-                title = task.title.split(': ')[1]
-                msg = '[Bug Updated] %s: %s' % (title, task.web_link)
+                msg = '[Bug Updated] %s: %s' % (task.title, task.web_link)
                 self.irc.sendchannel(msg)
                 
             sleep(int(intreval))
