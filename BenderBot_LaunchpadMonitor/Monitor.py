@@ -22,18 +22,20 @@ class Monitor(BenderProcess):
             self.logger.error('missing LaunchpadMonitor section')
             raise Exception(e)
         
-        # authenticate to Launchpad    
+        # authenticate to Launchpad
+        self.logger.debug('attempting login to launchpad %s' % system)
         try:
             lp = Launchpad.login_with('BenderBot.LaunchpadMonitor', system)
         except ValueError as e:
-            logger.error('%s' % e)
+            self.logger.error('%s' % e)
             raise Exception(e)
             
         # Lookup Launchpad project
+        self.logger.debug('looking up project %s' % project)
         try:
             ius = lp.projects(project)
         except errors.NotFound as e:
-            logger.error('%s' % e)
+            self.logger.error('%s' % e)
             raise Exception(e)
         
         while True:
@@ -46,7 +48,8 @@ class Monitor(BenderProcess):
             except:
                 self.logger.warning('failed to get bugs from launchpad')
                 return
-            
+
+            self.logger.info('found %s bugs' % len(tasks))            
             for task in tasks:
                 title = task.title.split(': ')[1]
                 msg = '[Bug Updated] %s: %s' % (title, task.web_link)
